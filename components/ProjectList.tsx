@@ -1,27 +1,17 @@
 import ProjectCard from "@/components/ProjectCard";
 
-const projects = [
-  {
-    title: "Portfolio Website",
-    description:
-      "A personal website to introduce my work and share selected projects.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-  },
-  {
-    title: "Project Dashboard",
-    description:
-      "A clear dashboard concept for organizing project details and progress.",
-    technologies: ["React", "TypeScript"],
-  },
-  {
-    title: "Responsive Landing Page",
-    description:
-      "A responsive page focused on accessible content and straightforward navigation.",
-    technologies: ["HTML", "CSS", "JavaScript"],
-  },
-];
+interface Project {
+  title: string;
+  description: string;
+  technologies: string[];
+  link?: string;
+}
 
-export default function ProjectList() {
+interface ProjectListProps {
+  projects: Project[];
+}
+
+export default function ProjectList({ projects }: ProjectListProps) {
   return (
     <section aria-labelledby="projects-heading">
       <h2

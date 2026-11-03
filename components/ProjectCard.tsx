@@ -1,13 +1,15 @@
-type ProjectCardProps = {
+interface ProjectCardProps {
   title: string;
   description: string;
   technologies: string[];
-};
+  link?: string;
+}
 
 export default function ProjectCard({
   title,
   description,
   technologies,
+  link,
 }: ProjectCardProps) {
   return (
     <article className="rounded-xl border border-zinc-200 p-6">
@@ -23,6 +25,18 @@ export default function ProjectCard({
           </li>
         ))}
       </ul>
+      {link && (
+        <p className="mt-5">
+          <a
+            className="font-medium text-blue-700 hover:underline"
+            href={link}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            View Project
+          </a>
+        </p>
+      )}
     </article>
   );
 }
